@@ -20,7 +20,7 @@
 4. 生成去重后的email文件
 ### 目录结构
 * EmailRemoval
-  * data    (放置数据)
+  * data    (数据)
     * initial    (初始化生成的email大文件)
       * emails.txt    (初始化的email大文件)
     * removal    (去重后的email大文件)
@@ -30,7 +30,7 @@
       * small_emails.txt    (初始化的email小文件)
       * small_google_emails.txt    (方法一去重后的小文件)
       * test_small_emails.txt    (方法二去重后的小文件)
-  * src    (代码数据)
+  * src    (代码)
     * main
       * java
         * com
