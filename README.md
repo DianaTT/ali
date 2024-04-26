@@ -46,3 +46,5 @@
             * remove    (去重操作)
               * GoogleGuavaEmailDuplicateRemoval.java    (方法一去重：布隆过滤器)
               * LargeFileDuplicateRemoval.java    (方法二去重：分批处理加外部排序)
+### 额外信息
+由于生成的文件过大，没有上传，可直接运行验证。
