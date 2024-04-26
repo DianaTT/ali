@@ -18,15 +18,21 @@
 3. 设置VM内存为1GB
 4. 生成去重后的email文件
 ### 目录结构
-EmailRemoval
-  data
-    initial
-    removal
-    test
-  src
-    main
-      java
-        com
-          lyt
-            prework
-            remove
+* EmailRemoval
+  * data(放置数据)
+    * initial(初始化生成的email大文件)
+      * emails.txt
+    * removal(去重后的email大文件)
+      * google_guava_deduplicated_emails.txt
+      * large_file_duplicate_removal_emails.txt
+    * test(采用2MB数据VM内存1MB小数量级实验相关数据)
+      * small_emails.txt
+      * small_google_emails.txt
+      * test_small_emails.txt
+  * src
+    * main
+      * java
+        * com
+          * lyt
+            * prework
+            * remove
