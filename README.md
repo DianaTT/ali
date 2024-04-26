@@ -16,7 +16,7 @@
 	  1. 采用布隆过滤器进行email去重（google的guava）
     2. 采用分批处理加外部排序进行email去重
 3. 设置VM内存为1GB
-      
+      "-Xms1g -Xmx1g"
 4. 生成去重后的email文件
 ### 目录结构
 * EmailRemoval
