@@ -11,7 +11,7 @@ import java.util.Random;
  * email生成定义限制因素：
  *  ① 只允许包含大小写字母与数字
  *  ② 格式满足 xxx@ali.com
- *  ③ ‘@’之前最大长度不超过64个字符（8个字节）
+ *  ③ ‘@’之前长度限制在6-18字节
  * @Author 彤彤
  * @Create 2024/4/25 17:15
  * @Version 1.0
