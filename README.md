@@ -16,23 +16,27 @@
 	  1. 采用布隆过滤器进行email去重（google的guava）
     2. 采用分批处理加外部排序进行email去重
 3. 设置VM内存为1GB
+      
 4. 生成去重后的email文件
 ### 目录结构
 * EmailRemoval
-  * data(放置数据)
-    * initial(初始化生成的email大文件)
-      * emails.txt
-    * removal(去重后的email大文件)
-      * google_guava_deduplicated_emails.txt
-      * large_file_duplicate_removal_emails.txt
-    * test(采用2MB数据VM内存1MB小数量级实验相关数据)
-      * small_emails.txt
-      * small_google_emails.txt
-      * test_small_emails.txt
-  * src
+  * data    (放置数据)
+    * initial    (初始化生成的email大文件)
+      * emails.txt    (初始化的email大文件)
+    * removal    (去重后的email大文件)
+      * google_guava_deduplicated_emails.txt    (方法一去重后的文件)
+      * large_file_duplicate_removal_emails.txt    (方法二去重后的文件)
+    * test    (采用2MB数据VM内存1MB小数量级实验相关数据)
+      * small_emails.txt    (初始化的email小文件)
+      * small_google_emails.txt    (方法一去重后的小文件)
+      * test_small_emails.txt    (方法二去重后的小文件)
+  * src    (代码数据)
     * main
       * java
         * com
           * lyt
-            * prework
-            * remove
+            * prework    (前置工作)
+              * EmailDataGenerator.java    (生成email大文件)
+            * remove    (去重操作)
+              * GoogleGuavaEmailDuplicateRemoval.java    (方法一去重：布隆过滤器)
+              * LargeFileDuplicateRemoval.java    (方法二去重：分批处理加外部排序)
