@@ -8,6 +8,7 @@
 ### 解题方法
   #### 方法一：采用布隆过滤器进行email去重
   #### 方法二：采用分批处理加外部排序进行email去重
+  #### 方法三：采用大文件划分内部排序去重和外部多路归并进行去重
 ### 具体过程
 1. 生成email大文件
      - 自定义email生成定义限制因素
@@ -21,6 +22,10 @@
       1. 分批处理获得临时分批文件
       2. 对临时分批文件去重
       3. 将临时分批文件外部排序归并整理
+   3. 大文件划分内部排序去重和外部多路归并进行去重
+      1. 大文件划分为小文件
+      2. 对于每个小文件，内部排序去重
+      3. 外部采用优先队列和当前行映射表实现多路归并去重
 3. 设置VM内存为1GB
       "-Xms1g -Xmx1g"
 4. 生成去重后的email文件
@@ -32,10 +37,12 @@
     * removal    (去重后的email大文件)
       * google_guava_deduplicated_emails.txt    (方法一去重后的文件)
       * large_file_duplicate_removal_emails.txt    (方法二去重后的文件)
+      * external_sort_deduplicated_emails.txt    (方法三去重后的文件)
     * test    (采用2MB数据VM内存1MB小数量级实验相关数据)
       * small_emails.txt    (初始化的email小文件)
       * small_google_emails.txt    (方法一去重后的小文件)
       * test_small_emails.txt    (方法二去重后的小文件)
+      * t.txt   (方法三去重后的小文件)
   * src    (代码)
     * main
       * java
@@ -46,5 +53,6 @@
             * remove    (去重操作)
               * GoogleGuavaEmailDuplicateRemoval.java    (方法一去重：布隆过滤器)
               * LargeFileDuplicateRemoval.java    (方法二去重：分批处理加外部排序)
+              * ExternalSortDeduplication.java    (方法三去重：内部排序加多路归并)
 ### 额外信息
 由于生成的文件过大，没有上传，可直接运行验证。
